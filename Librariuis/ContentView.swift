@@ -1,11 +1,12 @@
 import SwiftUI
 import SwiftData
-import QuickLookThumbnailing
 
 struct ContentView: View {
     @State var tags: [Tag] = []
-        
-    @State var pdfs: [(NSImage, URL)] = []
+    
+    @Environment(\.displayScale) var displayScale
+    
+    @State var books: [Book] = []
     
     var body: some View {
         NavigationSplitView(sidebar: {
@@ -18,26 +19,42 @@ struct ContentView: View {
                 
             }
         }, detail: {
-            if pdfs.isEmpty {
+            if books.isEmpty {
                 Text("Drop your PDFs here")
                     .font(.title)
                 Image(systemName: "document.badge.plus")
                     .resizable()
                     .frame(width: 64, height: 64)
             } else {
-                List(pdfs, id: \.1) { pdf in
+                List(books, id: \.self) { book in
                     VStack {
-                        Image(nsImage: pdf.0)
-                        Text(pdf.1.lastPathComponent)
+                        Image(decorative: book.thumbnail, scale: displayScale)
+                        Text(book.title)
+                            .lineLimit(3)
+                            .frame(width: 254)
                     }
                     .padding()
                 }
             }
         })
-        .dropDestination(for: URL.self) { paths, _ in
-           
-            for path in paths {
-                createThunmbnail(for: path, of: CGSize(width: 128, height: 128))
+        .dropDestination(for: URL.self) { urls, _ in
+            
+            for url in urls {
+                Task.detached {
+                    await withTaskGroup(of: CGImage.self, returning: [CGImage].self) {  group in
+                        var thumbnails: [CGImage] = []
+                        
+                        group.addTask {
+                            let thumbnail = await createThunmbnail(for: url, of: CGSize(width: 254, height: 254), scale: displayScale)
+                            thumbnails.append(thumbnail)
+                        }
+                        
+                        await group.waitForAll()
+                        
+                        return thumbnails
+                        
+                    }
+                }
             }
             
             return true
@@ -52,21 +69,6 @@ struct ContentView: View {
         }
     }
     
-    func createThunmbnail(for url: URL, of size: CGSize)  {
-        let request = QLThumbnailGenerator.Request(fileAt: url, size: size, scale: 1.0 as CGFloat, representationTypes: .thumbnail)
-        
-        QLThumbnailGenerator.shared.generateRepresentations(for: request) {
-            representation, type, err in
-            
-            guard err == nil else {
-                fatalError("Cannot generate thumbnail")
-            }
-            
-            if let representation {
-                pdfs.append((representation.nsImage, url))
-            }
-        }
-    }
 }
 
 
