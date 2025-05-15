@@ -39,20 +39,20 @@ struct ContentView: View {
         })
         .dropDestination(for: URL.self) { urls, _ in
             
-            for url in urls {
-                Task.detached {
-                    await withTaskGroup(of: CGImage.self, returning: [CGImage].self) {  group in
-                        var thumbnails: [CGImage] = []
-                        
+            Task.detached {
+                await withTaskGroup(of: Book.self) {  group in
+                    for url in urls {
                         group.addTask {
-                            let thumbnail = await createThunmbnail(for: url, of: CGSize(width: 254, height: 254), scale: displayScale)
-                            thumbnails.append(thumbnail)
+                            let book = await createBook(for: url, of: CGSize(width: 254, height: 254), scale: displayScale)
+                            return book
                         }
-                        
-                        await group.waitForAll()
-                        
-                        return thumbnails
-                        
+                    }
+                    
+                    
+                    for await book in group {
+                        await MainActor.run {
+                            books.append(book)
+                        }
                     }
                 }
             }

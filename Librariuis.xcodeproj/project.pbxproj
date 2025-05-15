@@ -6,6 +6,10 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXContainerItemProxy section */
 		37A9E34D2D29776B00F75D2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
@@ -24,6 +28,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Curs confirmare RO.pdf"; sourceTree = "<group>"; };
 		37A9E3392D29776A00F75D2A /* Librariuis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Librariuis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A9E34C2D29776B00F75D2A /* LibrariuisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariuisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A9E3562D29776B00F75D2A /* LibrariuisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariuisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -79,6 +84,7 @@
 				37A9E34F2D29776B00F75D2A /* LibrariuisTests */,
 				37A9E3592D29776B00F75D2A /* LibrariuisUITests */,
 				37A9E33A2D29776A00F75D2A /* Products */,
+				3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -212,6 +218,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
