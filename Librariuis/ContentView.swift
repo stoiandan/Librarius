@@ -4,6 +4,10 @@ import SwiftData
 struct ContentView: View {
     @State var tags: [Tag] = []
     
+    @State var collects: [String] = []
+    
+    @State var isCreatingTag = false
+    
     @Environment(\.displayScale) var displayScale
     
     @State var books: [Book] = []
@@ -16,7 +20,9 @@ struct ContentView: View {
                 }
             }
             Section("Collections") {
-                
+                List(collects, id: \.self) { col in
+                    Text(col)
+                }
             }
         }, detail: {
             if books.isEmpty {
@@ -63,7 +69,10 @@ struct ContentView: View {
         .toolbar {
             ToolbarItem {
                 Button("add tag", systemImage: "plus") {
-                    
+                    isCreatingTag.toggle()
+                }
+                .sheet(isPresented: $isCreatingTag) {
+                    TagCreator(tags: $tags, isPresented: $isCreatingTag)
                 }
             }
         }
@@ -73,6 +82,5 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView(tags: Tag.examples)
-    
+    ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"])
 }

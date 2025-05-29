@@ -8,6 +8,16 @@
 
 /* Begin PBXBuildFile section */
 		3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */; };
+		37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DEA2DE8C0F900A89639 /* Tag.swift */; };
+		37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DE62DE8C0F900A89639 /* BookView.swift */; };
+		37502DFF2DE8C0F900A89639 /* LibrariuisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DF22DE8C0F900A89639 /* LibrariuisApp.swift */; };
+		37502E002DE8C0F900A89639 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DF02DE8C0F900A89639 /* ContentView.swift */; };
+		37502E012DE8C0F900A89639 /* BookCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DED2DE8C0F900A89639 /* BookCreator.swift */; };
+		37502E022DE8C0F900A89639 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DE52DE8C0F900A89639 /* Book.swift */; };
+		37502E032DE8C0F900A89639 /* TagView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DEB2DE8C0F900A89639 /* TagView.swift */; };
+		37502E042DE8C0F900A89639 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37502DE82DE8C0F900A89639 /* Preview Assets.xcassets */; };
+		37502E052DE8C0F900A89639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37502DEF2DE8C0F900A89639 /* Assets.xcassets */; };
+		37502E082DE8C18000A89639 /* TagCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502E072DE8C18000A89639 /* TagCreator.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -29,17 +39,23 @@
 
 /* Begin PBXFileReference section */
 		3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Curs confirmare RO.pdf"; sourceTree = "<group>"; };
+		37502DE52DE8C0F900A89639 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
+		37502DE62DE8C0F900A89639 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
+		37502DE82DE8C0F900A89639 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
+		37502DEA2DE8C0F900A89639 /* Tag.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Tag.swift; sourceTree = "<group>"; };
+		37502DEB2DE8C0F900A89639 /* TagView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagView.swift; sourceTree = "<group>"; };
+		37502DED2DE8C0F900A89639 /* BookCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCreator.swift; sourceTree = "<group>"; };
+		37502DEF2DE8C0F900A89639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
+		37502DF02DE8C0F900A89639 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
+		37502DF12DE8C0F900A89639 /* Librariuis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Librariuis.entitlements; sourceTree = "<group>"; };
+		37502DF22DE8C0F900A89639 /* LibrariuisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariuisApp.swift; sourceTree = "<group>"; };
+		37502E072DE8C18000A89639 /* TagCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCreator.swift; sourceTree = "<group>"; };
 		37A9E3392D29776A00F75D2A /* Librariuis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Librariuis.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A9E34C2D29776B00F75D2A /* LibrariuisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariuisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A9E3562D29776B00F75D2A /* LibrariuisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariuisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		37A9E33B2D29776A00F75D2A /* Librariuis */ = {
-			isa = PBXFileSystemSynchronizedRootGroup;
-			path = Librariuis;
-			sourceTree = "<group>";
-		};
 		37A9E34F2D29776B00F75D2A /* LibrariuisTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
 			path = LibrariuisTests;
@@ -77,14 +93,80 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3748A6392DE20C2D00F17856 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		37502DE72DE8C0F900A89639 /* Book */ = {
+			isa = PBXGroup;
+			children = (
+				37502DE52DE8C0F900A89639 /* Book.swift */,
+				37502DE62DE8C0F900A89639 /* BookView.swift */,
+			);
+			path = Book;
+			sourceTree = "<group>";
+		};
+		37502DE92DE8C0F900A89639 /* Preview Content */ = {
+			isa = PBXGroup;
+			children = (
+				37502DE82DE8C0F900A89639 /* Preview Assets.xcassets */,
+			);
+			path = "Preview Content";
+			sourceTree = "<group>";
+		};
+		37502DEC2DE8C0F900A89639 /* Tag */ = {
+			isa = PBXGroup;
+			children = (
+				37502DEA2DE8C0F900A89639 /* Tag.swift */,
+				37502DEB2DE8C0F900A89639 /* TagView.swift */,
+			);
+			path = Tag;
+			sourceTree = "<group>";
+		};
+		37502DEE2DE8C0F900A89639 /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				37502DED2DE8C0F900A89639 /* BookCreator.swift */,
+			);
+			path = Util;
+			sourceTree = "<group>";
+		};
+		37502DF32DE8C0F900A89639 /* Librariuis */ = {
+			isa = PBXGroup;
+			children = (
+				37502E062DE8C11400A89639 /* TagCreator */,
+				37502DE72DE8C0F900A89639 /* Book */,
+				37502DE92DE8C0F900A89639 /* Preview Content */,
+				37502DEC2DE8C0F900A89639 /* Tag */,
+				37502DEE2DE8C0F900A89639 /* Util */,
+				37502DEF2DE8C0F900A89639 /* Assets.xcassets */,
+				37502DF02DE8C0F900A89639 /* ContentView.swift */,
+				37502DF12DE8C0F900A89639 /* Librariuis.entitlements */,
+				37502DF22DE8C0F900A89639 /* LibrariuisApp.swift */,
+			);
+			path = Librariuis;
+			sourceTree = "<group>";
+		};
+		37502E062DE8C11400A89639 /* TagCreator */ = {
+			isa = PBXGroup;
+			children = (
+				37502E072DE8C18000A89639 /* TagCreator.swift */,
+			);
+			path = TagCreator;
+			sourceTree = "<group>";
+		};
 		37A9E3302D29776A00F75D2A = {
 			isa = PBXGroup;
 			children = (
-				37A9E33B2D29776A00F75D2A /* Librariuis */,
+				3748A6392DE20C2D00F17856 /* Resources */,
+				37502DF32DE8C0F900A89639 /* Librariuis */,
 				37A9E34F2D29776B00F75D2A /* LibrariuisTests */,
 				37A9E3592D29776B00F75D2A /* LibrariuisUITests */,
 				37A9E33A2D29776A00F75D2A /* Products */,
-				3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */,
 			);
 			sourceTree = "<group>";
 		};
@@ -112,9 +194,6 @@
 			buildRules = (
 			);
 			dependencies = (
-			);
-			fileSystemSynchronizedGroups = (
-				37A9E33B2D29776A00F75D2A /* Librariuis */,
 			);
 			name = Librariuis;
 			packageProductDependencies = (
@@ -218,6 +297,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37502E042DE8C0F900A89639 /* Preview Assets.xcassets in Resources */,
+				37502E052DE8C0F900A89639 /* Assets.xcassets in Resources */,
 				3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -243,6 +324,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */,
+				37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */,
+				37502DFF2DE8C0F900A89639 /* LibrariuisApp.swift in Sources */,
+				37502E002DE8C0F900A89639 /* ContentView.swift in Sources */,
+				37502E012DE8C0F900A89639 /* BookCreator.swift in Sources */,
+				37502E022DE8C0F900A89639 /* Book.swift in Sources */,
+				37502E032DE8C0F900A89639 /* TagView.swift in Sources */,
+				37502E082DE8C18000A89639 /* TagCreator.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -418,7 +507,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = local.Dan.Librariuis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Debug;
 		};
@@ -446,7 +535,7 @@
 				PRODUCT_BUNDLE_IDENTIFIER = local.Dan.Librariuis;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = YES;
-				SWIFT_VERSION = 5.0;
+				SWIFT_VERSION = 6.0;
 			};
 			name = Release;
 		};
