@@ -8,10 +8,16 @@ struct TagCreator: View {
     @State var color: CGColor = .white
     @State var name = ""
     var body: some View {
-        VStack(spacing: 20) {
-            TextField("Tag Name", text: $name, prompt: Text("Enter a tag name"))
-            ColorPicker("Pick tag color", selection: $color)
+        Form {
+            Section() {
+                TextField("Tag Name", text: $name, prompt: Text("Enter a tag name"))
+            }
             
+            Section() {
+                ColorPicker("Pick tag color", selection: $color)
+
+            }
+
             
             Button("Create Tag",) {
                 tags.append(Tag(description: name, color: Color(color)))
@@ -19,7 +25,8 @@ struct TagCreator: View {
             }
             .disabled(name == "" || tags.contains { $0.description == name })
         }
-        .frame(maxWidth: 150)
+        .padding(20)
+        .frame(maxWidth: 250)
     }
 }
 
