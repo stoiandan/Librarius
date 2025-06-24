@@ -24,7 +24,7 @@ struct BookView: View {
         } else {
             ProgressView()
                 .task {
-                    book = await createBook(for: url, of: CGSize(width: 254, height: 254), scale: 1.0)
+                    book = await createBook(for: url, of: CGSize(width: 12, height: 255), scale: 1.0)
                 }
         }
     }

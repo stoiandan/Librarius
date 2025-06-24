@@ -2,7 +2,8 @@ import Foundation
 import CoreGraphics
 
 
-struct Book : Equatable, Hashable {
+struct Book : Equatable, Hashable, Identifiable {
+    let id = UUID()
     var metadata: Metadata = Metadata()
     
     let url: URL

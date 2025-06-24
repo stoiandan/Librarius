@@ -32,21 +32,26 @@ struct ContentView: View {
                     .resizable()
                     .frame(width: 64, height: 64)
             } else {
-                List(books, id: \.self) { book in
-                    VStack {
-                        Image(decorative: book.thumbnail, scale: displayScale)
-                        Text(book.title)
-                            .lineLimit(3)
-                            .frame(width: 254)
+                let columns = [GridItem(.adaptive(minimum: 60, maximum: 300), spacing: 20)]
+                ScrollView {
+                    LazyVGrid(columns: columns, spacing: 10) {
+                        ForEach(books) { book in
+                            VStack {
+                                Image(decorative: book.thumbnail, scale: displayScale)
+                                Text(book.title)
+                                    .lineLimit(3)
+                                    .frame(width: 310)
+                            }
+                            .border(.blue)
+                        }
                     }
-                    .padding()
                 }
             }
         })
         .dropDestination(for: URL.self) { urls, _ in
             
             Task.detached {
-                await withTaskGroup(of: Book.self) {  group in
+                await withTaskGroup {  group in
                     for url in urls {
                         group.addTask {
                             let book = await createBook(for: url, of: CGSize(width: 254, height: 254), scale: displayScale)
@@ -82,5 +87,20 @@ struct ContentView: View {
 
 
 #Preview {
-    ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"])
+    @Previewable @State var book: Book? = nil
+    
+    let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
+    
+    if book == nil {
+        ProgressView()
+            .task {
+                book = await createBook(for: url, of: CGSize(width: 12, height: 255), scale: 1.0)
+            }
+    } else {
+        ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"], books: .init(repeating: book!, count: 10))
+            .frame(width: 1200, height: 400)
+        
+    }
 }
+
+
