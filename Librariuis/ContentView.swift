@@ -32,7 +32,7 @@ struct ContentView: View {
                     .resizable()
                     .frame(width: 64, height: 64)
             } else {
-                let columns = [GridItem(.adaptive(minimum: 60, maximum: 300), spacing: 20)]
+                let columns = [GridItem(.adaptive(minimum: 210, maximum: 300), spacing: 20)]
                 ScrollView {
                     LazyVGrid(columns: columns, spacing: 10) {
                         ForEach(books) { book in
@@ -40,7 +40,7 @@ struct ContentView: View {
                                 Image(decorative: book.thumbnail, scale: displayScale)
                                 Text(book.title)
                                     .lineLimit(3)
-                                    .frame(width: 310)
+                                    .frame(width: 200)
                             }
                             .border(.blue)
                         }
@@ -97,7 +97,7 @@ struct ContentView: View {
                 book = await createBook(for: url, of: CGSize(width: 12, height: 255), scale: 1.0)
             }
     } else {
-        ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"], books: .init(repeating: book!, count: 10))
+        ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"], books: .init(repeating: book!, count: 12))
             .frame(width: 1200, height: 400)
         
     }
