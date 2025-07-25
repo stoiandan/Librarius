@@ -87,18 +87,32 @@ struct ContentView: View {
 
 
 #Preview {
-    @Previewable @State var book: Book? = nil
+    @Previewable @State var books: [Book]  = []
     
     let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
     
-    if book == nil {
+    if books.count < 5 {
         ProgressView()
             .task {
-                book = await createBook(for: url, of: CGSize(width: 12, height: 255), scale: 1.0)
+                await withTaskGroup { tg in
+                    for _ in 0..<10 {
+                        tg.addTask {
+                            return await createBook(for: url, of: CGSize(width: 120, height: 80), scale: 1.0)
+                        }
+                    }
+                    
+                    for await result in tg {
+                        await MainActor.run {
+                            books.append(result)
+                        }
+                    }
+                }
+
+               
             }
     } else {
-        ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"], books: .init(repeating: book!, count: 12))
-            .frame(width: 1200, height: 400)
+        ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"], books: books)
+            .frame(width: 4000, height: 2000)
         
     }
 }
