@@ -17,8 +17,7 @@ struct ContentView: View {
             Section("Tags") {
                 List(tags) { tag in
                     TagView(tag: tag)
-                }
-            }
+                }            }
             Section("Collections") {
                 List(collects, id: \.self) { col in
                     Text(col)
@@ -26,21 +25,25 @@ struct ContentView: View {
             }
         }, detail: {
             if books.isEmpty {
-                Text("Drop your PDFs here")
-                    .font(.title)
-                Image(systemName: "document.badge.plus")
-                    .resizable()
-                    .frame(width: 64, height: 64)
+                VStack {
+                    Text("Drop your PDFs here")
+                        .font(.title)
+                    Image(systemName: "document.badge.plus")
+                        .resizable()
+                        .scaledToFit()
+                }
+                .frame(width: 200,height: 200)
             } else {
-                let columns = [GridItem(.adaptive(minimum: 210, maximum: 300), spacing: 20)]
+                let columns = [GridItem(.adaptive(minimum: 170), spacing: 10)]
                 ScrollView {
-                    LazyVGrid(columns: columns, spacing: 10) {
+                    LazyVGrid(columns: columns) {
                         ForEach(books) { book in
                             VStack {
                                 Image(decorative: book.thumbnail, scale: displayScale)
+                                    .resizable()
+                                    .scaledToFit()
                                 Text(book.title)
                                     .lineLimit(3)
-                                    .frame(width: 200)
                             }
                             .border(.blue)
                         }
@@ -54,7 +57,7 @@ struct ContentView: View {
                 await withTaskGroup {  group in
                     for url in urls {
                         group.addTask {
-                            let book = await createBook(for: url, of: CGSize(width: 254, height: 254), scale: displayScale)
+                            let book = await createBook(for: url, of: CGSize(width: 15, height: 30), scale: 1.0)
                             return book
                         }
                     }
@@ -97,7 +100,7 @@ struct ContentView: View {
                 await withTaskGroup { tg in
                     for _ in 0..<10 {
                         tg.addTask {
-                            return await createBook(for: url, of: CGSize(width: 120, height: 80), scale: 1.0)
+                            return await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
                         }
                     }
                     
@@ -107,14 +110,17 @@ struct ContentView: View {
                         }
                     }
                 }
-
-               
+                
+                
             }
     } else {
         ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"], books: books)
-            .frame(width: 4000, height: 2000)
+            .frame(width: 700, height: 600)
         
     }
 }
 
 
+#Preview {
+    ContentView()
+}

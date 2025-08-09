@@ -3,6 +3,7 @@ import SwiftUI
 
 
 struct Tag : Identifiable, Hashable, Sendable {
+    
     let id = UUID()
     let description: String
     let color: Color
