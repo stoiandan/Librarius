@@ -34,45 +34,10 @@ struct ContentView: View {
                 }
                 .frame(width: 200,height: 200)
             } else {
-                let columns = [GridItem(.adaptive(minimum: 170), spacing: 10)]
-                ScrollView {
-                    LazyVGrid(columns: columns) {
-                        ForEach(books) { book in
-                            VStack {
-                                Image(decorative: book.thumbnail, scale: displayScale)
-                                    .resizable()
-                                    .scaledToFit()
-                                Text(book.title)
-                                    .lineLimit(3)
-                            }
-                            .border(.blue)
-                        }
-                    }
-                }
+                BookGridView(books: books)
             }
         })
-        .dropDestination(for: URL.self) { urls, _ in
-            
-            Task.detached {
-                await withTaskGroup {  group in
-                    for url in urls {
-                        group.addTask {
-                            let book = await createBook(for: url, of: CGSize(width: 15, height: 30), scale: 1.0)
-                            return book
-                        }
-                    }
-                    
-                    
-                    for await book in group {
-                        await MainActor.run {
-                            books.append(book)
-                        }
-                    }
-                }
-            }
-            
-            return true
-        }
+        .dropDestination(for: URL.self, action: handleDrop)
         .navigationTitle("Librarius")
         .toolbar {
             ToolbarItem {
@@ -84,6 +49,27 @@ struct ContentView: View {
                 }
             }
         }
+    }
+    
+    
+    func handleDrop(urls: [URL], point: CGPoint) -> Bool {
+        Task.detached {
+            await withTaskGroup {  group in
+                for url in urls {
+                    group.addTask {
+                        let book = await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
+                        return book
+                    }
+                }
+                
+                for await book in group {
+                    await MainActor.run {
+                        books.append(book)
+                    }
+                }
+            }
+        }
+        return true
     }
     
 }

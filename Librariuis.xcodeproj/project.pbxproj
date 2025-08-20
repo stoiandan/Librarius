@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		3707F3C72E55F94100D04ACB /* BookGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707F3C62E55F93A00D04ACB /* BookGridView.swift */; };
 		3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */; };
 		37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DEA2DE8C0F900A89639 /* Tag.swift */; };
 		37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DE62DE8C0F900A89639 /* BookView.swift */; };
@@ -38,6 +39,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		3707F3C62E55F93A00D04ACB /* BookGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridView.swift; sourceTree = "<group>"; };
 		3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Curs confirmare RO.pdf"; sourceTree = "<group>"; };
 		37502DE52DE8C0F900A89639 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		37502DE62DE8C0F900A89639 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
@@ -93,6 +95,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		3707F3C52E55F91E00D04ACB /* BookGirdView */ = {
+			isa = PBXGroup;
+			children = (
+				3707F3C62E55F93A00D04ACB /* BookGridView.swift */,
+			);
+			path = BookGirdView;
+			sourceTree = "<group>";
+		};
 		3748A6392DE20C2D00F17856 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
@@ -104,6 +114,7 @@
 		37502DE72DE8C0F900A89639 /* Book */ = {
 			isa = PBXGroup;
 			children = (
+				3707F3C52E55F91E00D04ACB /* BookGirdView */,
 				37502DE52DE8C0F900A89639 /* Book.swift */,
 				37502DE62DE8C0F900A89639 /* BookView.swift */,
 			);
@@ -328,6 +339,7 @@
 				37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */,
 				37502DFF2DE8C0F900A89639 /* LibrariuisApp.swift in Sources */,
 				37502E002DE8C0F900A89639 /* ContentView.swift in Sources */,
+				3707F3C72E55F94100D04ACB /* BookGridView.swift in Sources */,
 				37502E012DE8C0F900A89639 /* BookCreator.swift in Sources */,
 				37502E022DE8C0F900A89639 /* Book.swift in Sources */,
 				37502E032DE8C0F900A89639 /* TagView.swift in Sources */,
