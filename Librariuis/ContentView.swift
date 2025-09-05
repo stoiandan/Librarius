@@ -75,38 +75,32 @@ struct ContentView: View {
 }
 
 
-#Preview {
-    @Previewable @State var books: [Book]  = []
-    
-    let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
-    
-    if books.count < 5 {
-        ProgressView()
-            .task {
-                await withTaskGroup { tg in
-                    for _ in 0..<10 {
-                        tg.addTask {
-                            return await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
-                        }
-                    }
-                    
-                    for await result in tg {
-                        await MainActor.run {
-                            books.append(result)
-                        }
-                    }
-                }
-                
-                
-            }
-    } else {
-        ContentView(tags: Tag.examples, collects: ["Religion", "Sci-Fi", "Fantasy"], books: books)
-            .frame(width: 700, height: 600)
+struct BookProvider: PreviewModifier {
+    static func makeSharedContext() async -> [Book] {
+        let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
         
+        return await withTaskGroup { tg in
+            for _ in 0..<10 {
+                tg.addTask {
+                    return await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
+                }
+            }
+            var books: [Book] = []
+            for await result in tg {
+                    books.append(result)
+            }
+            return books
+        }
+    }
+    
+    
+    func body(content: Content, context: [Book]) -> some View {
+        ContentView(books: context)
     }
 }
 
 
-#Preview {
+
+#Preview(traits: .modifier(BookProvider())) {
     ContentView()
 }
