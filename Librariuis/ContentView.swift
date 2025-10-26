@@ -17,7 +17,9 @@ struct ContentView: View {
             Section("Tags") {
                 List(tags) { tag in
                     TagView(tag: tag)
-                }            }
+                        .draggable(tag)
+                }
+            }
             Section("Collections") {
                 List(collects, id: \.self) { col in
                     Text(col)
@@ -34,7 +36,7 @@ struct ContentView: View {
                 }
                 .frame(width: 200,height: 200)
             } else {
-                BookGridView(books: books)
+                BookGridView(books: $books, tags: tags)
             }
         })
         .dropDestination(for: URL.self, action: handleDrop)
@@ -87,7 +89,7 @@ struct BookProvider: PreviewModifier {
             }
             var books: [Book] = []
             for await result in tg {
-                    books.append(result)
+                books.append(result)
             }
             return books
         }
@@ -102,5 +104,6 @@ struct BookProvider: PreviewModifier {
 
 
 #Preview(traits: .modifier(BookProvider())) {
-    ContentView()
+    ContentView(tags: Tag.examples)
+        .frame(width: 400, height: 600)
 }

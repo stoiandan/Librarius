@@ -3,13 +3,14 @@ import SwiftUI
 
 struct BookGridView: View {
     let columns = [GridItem(.adaptive(minimum: 170), spacing: 10)]
-    let books: [Book]
+    @Binding var books: [Book]
+    let tags: [Tag]
     @Environment(\.displayScale) var displayScale
     
     var body: some View {
         ScrollView {
             LazyVGrid(columns: columns) {
-                ForEach(books) { book in
+                ForEach($books) { $book in
                     VStack {
                         Image(decorative: book.thumbnail, scale: displayScale)
                             .resizable()
@@ -17,9 +18,13 @@ struct BookGridView: View {
                         Text(book.title)
                             .lineLimit(3)
                     }
-                    .contextMenu {
-                        Button("How are you") {
-                            
+                    .dropDestination(for: String.self) {
+                        transerables, session in
+                    
+                        transerables.forEach { id in
+                            if let tag = getTag(from: tags, with: id) {
+                                book.metadata.addTag(tag.id)
+                            }
                         }
                     }
                     .border(.blue)

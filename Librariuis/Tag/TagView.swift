@@ -9,8 +9,8 @@ struct TagView: View {
                .clipShape(.circle)
                .frame(width: 16, height: 16)
            Text(tag.description)
+               .padding(.horizontal)
         }
-       .padding(.horizontal)
     }
 }
 
