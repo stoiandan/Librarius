@@ -282,7 +282,7 @@
 					};
 				};
 			};
-			buildConfigurationList = 37A9E3342D29776A00F75D2A /* Build configuration list for PBXProject "Librariuis" */;
+			buildConfigurationList = 37A9E3342D29776A00F75D2A /* Build configuration list for PBXProject "Librarius" */;
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -638,7 +638,7 @@
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		37A9E3342D29776A00F75D2A /* Build configuration list for PBXProject "Librariuis" */ = {
+		37A9E3342D29776A00F75D2A /* Build configuration list for PBXProject "Librarius" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37A9E35E2D29776B00F75D2A /* Debug */,
