@@ -11,15 +11,7 @@ struct BookGridView: View {
             LazyVGrid(columns: columns) {
                 ForEach($books) { $book in
                     BookView(book: book)
-                        .dropDestination(for: String.self) {
-                            transerables, session in
-                            
-                            transerables.forEach { id in
-                                if let tag = getTag(from: tags, with: id) {
-                                    book.addTag(tag)
-                                }
-                            }
-                        }
+                        .draggable(book)
                         .border(.blue)
                 }
             }

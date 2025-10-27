@@ -14,7 +14,7 @@ struct LibrariuisApp: App {
     
     var body: some Scene {
         WindowGroup {
-            ContentView()
+            MainWindow()
         }
     }
 }

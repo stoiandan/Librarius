@@ -1,7 +1,7 @@
 import Foundation
 import SwiftUI
 
-nonisolated struct Tag : Identifiable, Hashable {
+struct Tag : Identifiable, Hashable {
     let id = UUID()
     let description: String
     let color: Color
@@ -15,18 +15,8 @@ extension Tag: Comparable {
 
 
 
-extension Tag: Transferable {
-  nonisolated static var transferRepresentation: some TransferRepresentation {
-        ProxyRepresentation(exporting: \.id.uuidString)
-    }
-}
-
-
-
-
-
-func getTag(from tags: [Tag], with id: String) -> Tag? {
-    tags.first { $0.id.uuidString == id }
+func getBook(from books: [Book], with id: String) -> Book? {
+    books.first { $0.id.uuidString == id }
 }
 
 
