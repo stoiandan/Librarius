@@ -27,14 +27,14 @@
 			containerPortal = 37A9E3312D29776A00F75D2A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 37A9E3382D29776A00F75D2A;
-			remoteInfo = Librariuis;
+			remoteInfo = Librarius;
 		};
 		37A9E3572D29776B00F75D2A /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
 			containerPortal = 37A9E3312D29776A00F75D2A /* Project object */;
 			proxyType = 1;
 			remoteGlobalIDString = 37A9E3382D29776A00F75D2A;
-			remoteInfo = Librariuis;
+			remoteInfo = Librarius;
 		};
 /* End PBXContainerItemProxy section */
 
@@ -49,7 +49,7 @@
 		37502DED2DE8C0F900A89639 /* BookCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookCreator.swift; sourceTree = "<group>"; };
 		37502DEF2DE8C0F900A89639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37502DF02DE8C0F900A89639 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
-		37502DF12DE8C0F900A89639 /* Librariuis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Librariuis.entitlements; sourceTree = "<group>"; };
+		37502DF12DE8C0F900A89639 /* Librarius.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Librarius.entitlements; sourceTree = "<group>"; };
 		37502DF22DE8C0F900A89639 /* LibrariusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariusApp.swift; sourceTree = "<group>"; };
 		37502E072DE8C18000A89639 /* TagCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCreator.swift; sourceTree = "<group>"; };
 		37A9E3392D29776A00F75D2A /* Librarius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Librarius.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -156,7 +156,7 @@
 				37502DEE2DE8C0F900A89639 /* Util */,
 				37502DEF2DE8C0F900A89639 /* Assets.xcassets */,
 				37502DF02DE8C0F900A89639 /* ContentView.swift */,
-				37502DF12DE8C0F900A89639 /* Librariuis.entitlements */,
+				37502DF12DE8C0F900A89639 /* Librarius.entitlements */,
 				37502DF22DE8C0F900A89639 /* LibrariusApp.swift */,
 			);
 			path = Librarius;
@@ -209,7 +209,7 @@
 			name = Librarius;
 			packageProductDependencies = (
 			);
-			productName = Librariuis;
+			productName = Librarius;
 			productReference = 37A9E3392D29776A00F75D2A /* Librarius.app */;
 			productType = "com.apple.product-type.application";
 		};
@@ -581,7 +581,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Librariuis.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Librariuis";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Librarius.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Librarius";
 			};
 			name = Debug;
 		};
@@ -599,7 +599,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Librariuis.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Librariuis";
+				TEST_HOST = "$(BUILT_PRODUCTS_DIR)/Librarius.app/$(BUNDLE_EXECUTABLE_FOLDER_PATH)/Librarius";
 			};
 			name = Release;
 		};
@@ -615,7 +615,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Librariuis;
+				TEST_TARGET_NAME = Librarius;
 			};
 			name = Debug;
 		};
@@ -631,7 +631,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_EMIT_LOC_STRINGS = NO;
 				SWIFT_VERSION = 5.0;
-				TEST_TARGET_NAME = Librariuis;
+				TEST_TARGET_NAME = Librarius;
 			};
 			name = Release;
 		};
