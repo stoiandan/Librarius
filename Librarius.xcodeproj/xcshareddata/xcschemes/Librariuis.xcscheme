@@ -16,8 +16,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37A9E3382D29776A00F75D2A"
-               BuildableName = "Librariuis.app"
-               BlueprintName = "Librariuis"
+               BuildableName = "Librarius.app"
+               BlueprintName = "Librarius"
                ReferencedContainer = "container:Librarius.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
@@ -36,8 +36,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37A9E34B2D29776B00F75D2A"
-               BuildableName = "LibrariuisTests.xctest"
-               BlueprintName = "LibrariuisTests"
+               BuildableName = "LibrariusTests.xctest"
+               BlueprintName = "LibrariusTests"
                ReferencedContainer = "container:Librarius.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -47,8 +47,8 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "37A9E3552D29776B00F75D2A"
-               BuildableName = "LibrariuisUITests.xctest"
-               BlueprintName = "LibrariuisUITests"
+               BuildableName = "LibrariusUITests.xctest"
+               BlueprintName = "LibrariusUITests"
                ReferencedContainer = "container:Librarius.xcodeproj">
             </BuildableReference>
          </TestableReference>
@@ -69,8 +69,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37A9E3382D29776A00F75D2A"
-            BuildableName = "Librariuis.app"
-            BlueprintName = "Librariuis"
+            BuildableName = "Librarius.app"
+            BlueprintName = "Librarius"
             ReferencedContainer = "container:Librarius.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
@@ -86,8 +86,8 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "37A9E3382D29776A00F75D2A"
-            BuildableName = "Librariuis.app"
-            BlueprintName = "Librariuis"
+            BuildableName = "Librarius.app"
+            BlueprintName = "Librarius"
             ReferencedContainer = "container:Librarius.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>

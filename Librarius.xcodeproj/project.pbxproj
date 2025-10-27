@@ -11,7 +11,7 @@
 		3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */; };
 		37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DEA2DE8C0F900A89639 /* Tag.swift */; };
 		37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DE62DE8C0F900A89639 /* BookView.swift */; };
-		37502DFF2DE8C0F900A89639 /* LibrariuisApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DF22DE8C0F900A89639 /* LibrariuisApp.swift */; };
+		37502DFF2DE8C0F900A89639 /* LibrariusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DF22DE8C0F900A89639 /* LibrariusApp.swift */; };
 		37502E002DE8C0F900A89639 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DF02DE8C0F900A89639 /* ContentView.swift */; };
 		37502E012DE8C0F900A89639 /* BookCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DED2DE8C0F900A89639 /* BookCreator.swift */; };
 		37502E022DE8C0F900A89639 /* Book.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DE52DE8C0F900A89639 /* Book.swift */; };
@@ -50,22 +50,22 @@
 		37502DEF2DE8C0F900A89639 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		37502DF02DE8C0F900A89639 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
 		37502DF12DE8C0F900A89639 /* Librariuis.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Librariuis.entitlements; sourceTree = "<group>"; };
-		37502DF22DE8C0F900A89639 /* LibrariuisApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariuisApp.swift; sourceTree = "<group>"; };
+		37502DF22DE8C0F900A89639 /* LibrariusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariusApp.swift; sourceTree = "<group>"; };
 		37502E072DE8C18000A89639 /* TagCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCreator.swift; sourceTree = "<group>"; };
-		37A9E3392D29776A00F75D2A /* Librariuis.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Librariuis.app; sourceTree = BUILT_PRODUCTS_DIR; };
-		37A9E34C2D29776B00F75D2A /* LibrariuisTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariuisTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		37A9E3562D29776B00F75D2A /* LibrariuisUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariuisUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A9E3392D29776A00F75D2A /* Librarius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Librarius.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A9E34C2D29776B00F75D2A /* LibrariusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37A9E3562D29776B00F75D2A /* LibrariusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
-		37A9E34F2D29776B00F75D2A /* LibrariuisTests */ = {
+		37A9E34F2D29776B00F75D2A /* LibrariusTests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LibrariuisTests;
+			path = LibrariusTests;
 			sourceTree = "<group>";
 		};
-		37A9E3592D29776B00F75D2A /* LibrariuisUITests */ = {
+		37A9E3592D29776B00F75D2A /* LibrariusUITests */ = {
 			isa = PBXFileSystemSynchronizedRootGroup;
-			path = LibrariuisUITests;
+			path = LibrariusUITests;
 			sourceTree = "<group>";
 		};
 /* End PBXFileSystemSynchronizedRootGroup section */
@@ -146,7 +146,7 @@
 			path = Util;
 			sourceTree = "<group>";
 		};
-		37502DF32DE8C0F900A89639 /* Librariuis */ = {
+		37502DF32DE8C0F900A89639 /* Librarius */ = {
 			isa = PBXGroup;
 			children = (
 				37502E062DE8C11400A89639 /* TagCreator */,
@@ -157,9 +157,9 @@
 				37502DEF2DE8C0F900A89639 /* Assets.xcassets */,
 				37502DF02DE8C0F900A89639 /* ContentView.swift */,
 				37502DF12DE8C0F900A89639 /* Librariuis.entitlements */,
-				37502DF22DE8C0F900A89639 /* LibrariuisApp.swift */,
+				37502DF22DE8C0F900A89639 /* LibrariusApp.swift */,
 			);
-			path = Librariuis;
+			path = Librarius;
 			sourceTree = "<group>";
 		};
 		37502E062DE8C11400A89639 /* TagCreator */ = {
@@ -174,9 +174,9 @@
 			isa = PBXGroup;
 			children = (
 				3748A6392DE20C2D00F17856 /* Resources */,
-				37502DF32DE8C0F900A89639 /* Librariuis */,
-				37A9E34F2D29776B00F75D2A /* LibrariuisTests */,
-				37A9E3592D29776B00F75D2A /* LibrariuisUITests */,
+				37502DF32DE8C0F900A89639 /* Librarius */,
+				37A9E34F2D29776B00F75D2A /* LibrariusTests */,
+				37A9E3592D29776B00F75D2A /* LibrariusUITests */,
 				37A9E33A2D29776A00F75D2A /* Products */,
 			);
 			sourceTree = "<group>";
@@ -184,9 +184,9 @@
 		37A9E33A2D29776A00F75D2A /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				37A9E3392D29776A00F75D2A /* Librariuis.app */,
-				37A9E34C2D29776B00F75D2A /* LibrariuisTests.xctest */,
-				37A9E3562D29776B00F75D2A /* LibrariuisUITests.xctest */,
+				37A9E3392D29776A00F75D2A /* Librarius.app */,
+				37A9E34C2D29776B00F75D2A /* LibrariusTests.xctest */,
+				37A9E3562D29776B00F75D2A /* LibrariusUITests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
@@ -194,9 +194,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		37A9E3382D29776A00F75D2A /* Librariuis */ = {
+		37A9E3382D29776A00F75D2A /* Librarius */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37A9E3602D29776B00F75D2A /* Build configuration list for PBXNativeTarget "Librariuis" */;
+			buildConfigurationList = 37A9E3602D29776B00F75D2A /* Build configuration list for PBXNativeTarget "Librarius" */;
 			buildPhases = (
 				37A9E3352D29776A00F75D2A /* Sources */,
 				37A9E3362D29776A00F75D2A /* Frameworks */,
@@ -206,16 +206,16 @@
 			);
 			dependencies = (
 			);
-			name = Librariuis;
+			name = Librarius;
 			packageProductDependencies = (
 			);
 			productName = Librariuis;
-			productReference = 37A9E3392D29776A00F75D2A /* Librariuis.app */;
+			productReference = 37A9E3392D29776A00F75D2A /* Librarius.app */;
 			productType = "com.apple.product-type.application";
 		};
-		37A9E34B2D29776B00F75D2A /* LibrariuisTests */ = {
+		37A9E34B2D29776B00F75D2A /* LibrariusTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37A9E3632D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariuisTests" */;
+			buildConfigurationList = 37A9E3632D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariusTests" */;
 			buildPhases = (
 				37A9E3482D29776B00F75D2A /* Sources */,
 				37A9E3492D29776B00F75D2A /* Frameworks */,
@@ -227,18 +227,18 @@
 				37A9E34E2D29776B00F75D2A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				37A9E34F2D29776B00F75D2A /* LibrariuisTests */,
+				37A9E34F2D29776B00F75D2A /* LibrariusTests */,
 			);
-			name = LibrariuisTests;
+			name = LibrariusTests;
 			packageProductDependencies = (
 			);
 			productName = LibrariuisTests;
-			productReference = 37A9E34C2D29776B00F75D2A /* LibrariuisTests.xctest */;
+			productReference = 37A9E34C2D29776B00F75D2A /* LibrariusTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
-		37A9E3552D29776B00F75D2A /* LibrariuisUITests */ = {
+		37A9E3552D29776B00F75D2A /* LibrariusUITests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 37A9E3662D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariuisUITests" */;
+			buildConfigurationList = 37A9E3662D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariusUITests" */;
 			buildPhases = (
 				37A9E3522D29776B00F75D2A /* Sources */,
 				37A9E3532D29776B00F75D2A /* Frameworks */,
@@ -250,13 +250,13 @@
 				37A9E3582D29776B00F75D2A /* PBXTargetDependency */,
 			);
 			fileSystemSynchronizedGroups = (
-				37A9E3592D29776B00F75D2A /* LibrariuisUITests */,
+				37A9E3592D29776B00F75D2A /* LibrariusUITests */,
 			);
-			name = LibrariuisUITests;
+			name = LibrariusUITests;
 			packageProductDependencies = (
 			);
 			productName = LibrariuisUITests;
-			productReference = 37A9E3562D29776B00F75D2A /* LibrariuisUITests.xctest */;
+			productReference = 37A9E3562D29776B00F75D2A /* LibrariusUITests.xctest */;
 			productType = "com.apple.product-type.bundle.ui-testing";
 		};
 /* End PBXNativeTarget section */
@@ -296,9 +296,9 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				37A9E3382D29776A00F75D2A /* Librariuis */,
-				37A9E34B2D29776B00F75D2A /* LibrariuisTests */,
-				37A9E3552D29776B00F75D2A /* LibrariuisUITests */,
+				37A9E3382D29776A00F75D2A /* Librarius */,
+				37A9E34B2D29776B00F75D2A /* LibrariusTests */,
+				37A9E3552D29776B00F75D2A /* LibrariusUITests */,
 			);
 		};
 /* End PBXProject section */
@@ -337,7 +337,7 @@
 			files = (
 				37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */,
 				37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */,
-				37502DFF2DE8C0F900A89639 /* LibrariuisApp.swift in Sources */,
+				37502DFF2DE8C0F900A89639 /* LibrariusApp.swift in Sources */,
 				37502E002DE8C0F900A89639 /* ContentView.swift in Sources */,
 				3707F3C72E55F94100D04ACB /* BookGridView.swift in Sources */,
 				37502E012DE8C0F900A89639 /* BookCreator.swift in Sources */,
@@ -366,12 +366,12 @@
 /* Begin PBXTargetDependency section */
 		37A9E34E2D29776B00F75D2A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 37A9E3382D29776A00F75D2A /* Librariuis */;
+			target = 37A9E3382D29776A00F75D2A /* Librarius */;
 			targetProxy = 37A9E34D2D29776B00F75D2A /* PBXContainerItemProxy */;
 		};
 		37A9E3582D29776B00F75D2A /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 37A9E3382D29776A00F75D2A /* Librariuis */;
+			target = 37A9E3382D29776A00F75D2A /* Librarius */;
 			targetProxy = 37A9E3572D29776B00F75D2A /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
@@ -508,13 +508,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Librariuis/Librariuis.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Librarius/Librarius.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Librariuis/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Librarius/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -527,7 +527,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = local.Dan.Librariuis;
+				PRODUCT_BUNDLE_IDENTIFIER = local.Dan.Librarius;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -540,13 +540,13 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
-				CODE_SIGN_ENTITLEMENTS = Librariuis/Librariuis.entitlements;
+				CODE_SIGN_ENTITLEMENTS = Librarius/Librarius.entitlements;
 				"CODE_SIGN_IDENTITY[sdk=macosx*]" = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
 				COMBINE_HIDPI_IMAGES = YES;
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
-				DEVELOPMENT_ASSET_PATHS = "\"Librariuis/Preview Content\"";
+				DEVELOPMENT_ASSET_PATHS = "\"Librarius/Preview Content\"";
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -559,7 +559,7 @@
 				);
 				MACOSX_DEPLOYMENT_TARGET = 26.0;
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = local.Dan.Librariuis;
+				PRODUCT_BUNDLE_IDENTIFIER = local.Dan.Librarius;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_DEFAULT_ACTOR_ISOLATION = MainActor;
 				SWIFT_EMIT_LOC_STRINGS = YES;
@@ -647,7 +647,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37A9E3602D29776B00F75D2A /* Build configuration list for PBXNativeTarget "Librariuis" */ = {
+		37A9E3602D29776B00F75D2A /* Build configuration list for PBXNativeTarget "Librarius" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37A9E3612D29776B00F75D2A /* Debug */,
@@ -656,7 +656,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37A9E3632D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariuisTests" */ = {
+		37A9E3632D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariusTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37A9E3642D29776B00F75D2A /* Debug */,
@@ -665,7 +665,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		37A9E3662D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariuisUITests" */ = {
+		37A9E3662D29776B00F75D2A /* Build configuration list for PBXNativeTarget "LibrariusUITests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				37A9E3672D29776B00F75D2A /* Debug */,
