@@ -1,9 +1,10 @@
 import Foundation
+import SwiftUI
 import CoreGraphics
 
 
 struct Book : Equatable, Hashable, Identifiable {
-    let id = UUID()
+    nonisolated let id = UUID()
     var tags: Set<Tag> = []
     
     
@@ -40,5 +41,11 @@ struct Book : Equatable, Hashable, Identifiable {
         } else {
             url.lastPathComponent
         }
+    }
+}
+
+extension Book: Transferable {
+     nonisolated static var transferRepresentation: some TransferRepresentation {
+        ProxyRepresentation(exporting: \.id.uuidString)
     }
 }

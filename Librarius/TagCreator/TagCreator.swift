@@ -3,9 +3,12 @@
 import SwiftUI
 
 struct TagCreator: View {
+    @Environment(\.self) var environment
+    
+    
     @Binding var tags: [Tag]
     @Binding var isPresented: Bool
-    @State var color: CGColor = .white
+    @State var color: Color = .white
     @State var name = ""
     var body: some View {
         Form {
@@ -15,12 +18,12 @@ struct TagCreator: View {
             
             Section() {
                 ColorPicker("Pick tag color", selection: $color)
-
+                
             }
-
+            
             
             Button("Create Tag",) {
-                tags.append(Tag(description: name, color: Color(color)))
+                tags.append(Tag(description: name, color: color.resolve(in: environment)))
                 isPresented = false
             }
             .disabled(name == "" || tags.contains { $0.description == name })

@@ -1,32 +1,32 @@
 import SwiftUI
 import SwiftData
 
-struct ContentView: View {
-    @State var tags: [Tag] = []
-    
-    @State var collects: [String] = []
-    
-    @State var isCreatingTag = false
+struct MainWindow: View {   
+    @State var vm = MainWindowVM()
     
     @Environment(\.displayScale) var displayScale
-    
-    @State var books: [Book] = []
     
     var body: some View {
         NavigationSplitView(sidebar: {
             Section("Tags") {
-                List(tags) { tag in
+                List(vm.tags) { tag in
                     TagView(tag: tag)
-                        .draggable(tag)
+                        .dropDestination(for: Book.self) {
+                            droppedBooks, session in
+                            
+                            droppedBooks.forEach { book in
+                                vm.books[vm.books.firstIndex(of: book)!].tags.insert(tag)
+                            }
+                        }
                 }
             }
             Section("Collections") {
-                List(collects, id: \.self) { col in
+                List(vm.collections, id: \.self) { col in
                     Text(col)
                 }
             }
         }, detail: {
-            if books.isEmpty {
+            if vm.books.isEmpty {
                 VStack {
                     Text("Drop your PDFs here")
                         .font(.title)
@@ -36,7 +36,7 @@ struct ContentView: View {
                 }
                 .frame(width: 200,height: 200)
             } else {
-                BookGridView(books: $books, tags: tags)
+                BookGridView(books: $vm.books, tags: vm.tags)
             }
         })
         .dropDestination(for: URL.self, action: handleDrop)
@@ -44,10 +44,10 @@ struct ContentView: View {
         .toolbar {
             ToolbarItem {
                 Button("add tag", systemImage: "plus") {
-                    isCreatingTag.toggle()
+                    vm.isCreatingTag.toggle()
                 }
-                .sheet(isPresented: $isCreatingTag) {
-                    TagCreator(tags: $tags, isPresented: $isCreatingTag)
+                .sheet(isPresented: $vm.isCreatingTag) {
+                    TagCreator(tags: $vm.tags, isPresented: $vm.isCreatingTag)
                 }
             }
         }
@@ -66,7 +66,7 @@ struct ContentView: View {
                 
                 for await book in group {
                     await MainActor.run {
-                        books.append(book)
+                        vm.books.append(book)
                     }
                 }
             }
@@ -97,13 +97,18 @@ struct BookProvider: PreviewModifier {
     
     
     func body(content: Content, context: [Book]) -> some View {
-        ContentView(books: context)
+        let mw = MainWindow()
+        mw.vm.books.append(contentsOf: context)
+        
+        return mw
     }
 }
 
 
 
 #Preview(traits: .modifier(BookProvider())) {
-    ContentView(tags: Tag.examples)
-        .frame(width: 400, height: 600)
+    let mw = MainWindow()
+    mw.vm.tags.append(contentsOf: Tag.examples)
+    
+    return  mw.frame(width: 400, height: 600)
 }

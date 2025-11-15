@@ -1,10 +1,24 @@
 import Foundation
 import SwiftUI
 
-nonisolated struct Tag : Identifiable, Hashable {
-    let id = UUID()
+struct Tag : Identifiable, Hashable, Codable {
+    let id: UUID
     let description: String
-    let color: Color
+    let color: Color.Resolved
+    
+    init(description: String, color: Color.Resolved) {
+        self.description = description
+        self.color = color
+        self.id = UUID()
+    }
+    
+    init(description: String, color: Color.Resolved, id: UUID) {
+        self.description = description
+        self.color = color
+        self.id = id
+    }
+    
+    
 }
 
 extension Tag: Comparable {
@@ -15,39 +29,33 @@ extension Tag: Comparable {
 
 
 
-extension Tag: Transferable {
-  nonisolated static var transferRepresentation: some TransferRepresentation {
-        ProxyRepresentation(exporting: \.id.uuidString)
-    }
+func getBook(from books: [Book], with id: String) -> Book? {
+    books.first { $0.id.uuidString == id }
 }
 
 
 
-
-
-func getTag(from tags: [Tag], with id: String) -> Tag? {
-    tags.first { $0.id.uuidString == id }
-}
-
+fileprivate let env = EnvironmentValues.init()
 
 
 extension Tag {
+
     static var examples: [Tag] {
-        [
-            .init(description: "Sci-Fi", color: .blue),
-            .init(description: "Roamnce", color: .black),
-            .init(description: "Religion", color: .white),
-            .init(description: "Technical", color: .brown),
-            .init(description: "Cooking", color: .green),
-            .init(description: "Sports", color: .indigo),
-            .init(description: "Teas", color: .mint),
+         [
+            .init(description: "Sci-Fi", color: Color.blue.resolve(in: env)),
+            .init(description: "Roamnce", color: Color.black.resolve(in: env)),
+            .init(description: "Religion", color: Color.white.resolve(in: env)),
+            .init(description: "Technical", color: Color.brown.resolve(in: env)),
+            .init(description: "Cooking", color: Color.green.resolve(in: env)),
+            .init(description: "Sports", color: Color.indigo.resolve(in: env)),
+            .init(description: "Teas", color: Color.mint.resolve(in: env)),
         ]
     }
     
     static var shortExamples: [Tag] {
         [
-            .init(description: "Sci-Fi", color: .blue),
-            .init(description: "Roamnce", color: .black),
+            .init(description: "Sci-Fi", color: Color.blue.resolve(in: env)),
+            .init(description: "Roamnce", color: Color.black.resolve(in: env)),
         ]
     }
 }
