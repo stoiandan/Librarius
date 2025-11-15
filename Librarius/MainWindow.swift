@@ -1,7 +1,7 @@
 import SwiftUI
 import SwiftData
 
-struct MainWindow: View {
+struct MainWindow: View {   
     @State var vm = MainWindowVM()
     
     @Environment(\.displayScale) var displayScale
@@ -11,11 +11,11 @@ struct MainWindow: View {
             Section("Tags") {
                 List(vm.tags) { tag in
                     TagView(tag: tag)
-                        .dropDestination(for: String.self) {
-                            bookIds, session in
+                        .dropDestination(for: Book.self) {
+                            droppedBooks, session in
                             
-                            bookIds.forEach { bookId in
-                                vm.addTagTo(tag, bookId:   UUID(uuidString: bookId)!)
+                            droppedBooks.forEach { book in
+                                vm.books[vm.books.firstIndex(of: book)!].tags.insert(tag)
                             }
                         }
                 }

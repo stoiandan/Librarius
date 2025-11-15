@@ -5,7 +5,7 @@ struct TagView: View {
     
     var body: some View {
        HStack {
-           tag.color
+           Color(red: 4, green: 1, blue: 4)
                .clipShape(.circle)
                .frame(width: 16, height: 16)
            Text(tag.description)
@@ -15,6 +15,7 @@ struct TagView: View {
 }
 
 #Preview {
-    let tag = Tag(description: "Sci-Fi", color: .blue)
+    @Previewable @Environment(\.self) var env
+    let tag = Tag(description: "Sci-Fi", color: Color.blue.resolve(in: env) )
     TagView(tag: tag)
 }

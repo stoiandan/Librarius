@@ -14,7 +14,7 @@ class MainWindowVM  {
      var books: [Book] = []
     
     
-    func addTagTo(_ tag: Tag, bookId bookId: UUID ) {
+    func addTagTo(_ tag: Tag, bookId: UUID ) {
         guard let idx = books.firstIndex( where: { $0.id == bookId }) else {
             return
         }
