@@ -6,13 +6,7 @@ struct Tag : Identifiable, Hashable, Codable {
     let description: String
     let color: Color.Resolved
     
-    init(description: String, color: Color.Resolved) {
-        self.description = description
-        self.color = color
-        self.id = UUID()
-    }
-    
-    init(description: String, color: Color.Resolved, id: UUID) {
+    init(description: String, color: Color.Resolved, id: UUID = UUID()) {
         self.description = description
         self.color = color
         self.id = id
