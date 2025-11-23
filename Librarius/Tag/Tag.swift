@@ -1,25 +1,51 @@
 import Foundation
 import SwiftUI
+import SwiftData
+import CoreGraphics
 
-struct Tag : Identifiable, Hashable, Codable {
-    let id: UUID
-    let description: String
-    let color: Color.Resolved
+
+@Model
+class Tag : Identifiable {
+    private(set) var name: String
+    private(set) var red: Double
+    private(set) var green: Double
+    private(set) var blue: Double
+    private(set) var alpha: Double
     
-    init(description: String, color: Color.Resolved, id: UUID = UUID()) {
-        self.description = description
-        self.color = color
-        self.id = id
+    convenience init(name: String, color: Color) {
+        let nsColor = NSColor(color)
+        let r = Double(nsColor.redComponent)
+        let g = Double(nsColor.greenComponent)
+        let b = Double(nsColor.blueComponent)
+        let a = Double(nsColor.alphaComponent)
+        self.init(name, r, g, b, a)
+    }
+    
+    init(_ description: String, _ red: Double, _ green: Double, _ blue: Double, _ alpha: Double) {
+        self.name = description
+        self.red = red
+        self.green = green
+        self.blue = blue
+        self.alpha = alpha
+
+    }
+    
+    
+    var color: Color {
+        let nsColor = NSColor(red: CGFloat(self.red), green: CGFloat(self.green), blue: CGFloat(self.blue), alpha: CGFloat(self.alpha))
+        return Color(nsColor)
     }
     
     
 }
 
-extension Tag: Comparable {
-    static func < (lhs: Tag, rhs: Tag) -> Bool {
-        lhs.id < rhs.id
+
+extension Tag: nonisolated Comparable {
+    nonisolated static func < (lhs: Tag, rhs: Tag) -> Bool {
+        lhs.persistentModelID < rhs.persistentModelID
     }
 }
+
 
 
 
@@ -29,27 +55,25 @@ func getBook(from books: [Book], with id: String) -> Book? {
 
 
 
-fileprivate let env = EnvironmentValues.init()
-
-
 extension Tag {
-
+    
     static var examples: [Tag] {
-         [
-            .init(description: "Sci-Fi", color: Color.blue.resolve(in: env)),
-            .init(description: "Roamnce", color: Color.black.resolve(in: env)),
-            .init(description: "Religion", color: Color.white.resolve(in: env)),
-            .init(description: "Technical", color: Color.brown.resolve(in: env)),
-            .init(description: "Cooking", color: Color.green.resolve(in: env)),
-            .init(description: "Sports", color: Color.indigo.resolve(in: env)),
-            .init(description: "Teas", color: Color.mint.resolve(in: env)),
+        [
+            .init(name: "Sci-Fi", color: Color.blue),
+            .init(name: "Roamnce", color: Color.black),
+            .init(name: "Religion", color: Color.white),
+            .init(name: "Technical", color: Color.brown),
+            .init(name: "Cooking", color: Color.green),
+            .init(name: "Sports", color: Color.indigo),
+            .init(name: "Teas", color: Color.mint),
         ]
     }
     
     static var shortExamples: [Tag] {
-        [
-            .init(description: "Sci-Fi", color: Color.blue.resolve(in: env)),
-            .init(description: "Roamnce", color: Color.black.resolve(in: env)),
+         [
+            .init(name: "Sci-Fi", color: Color.blue),
+            .init(name: "Roamnce", color: Color.black),
         ]
     }
 }
+

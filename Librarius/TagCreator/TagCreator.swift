@@ -23,10 +23,10 @@ struct TagCreator: View {
             
             
             Button("Create Tag",) {
-                tags.append(Tag(description: name, color: color.resolve(in: environment)))
+                tags.append(Tag(name: name, color: color))
                 isPresented = false
             }
-            .disabled(name == "" || tags.contains { $0.description == name })
+            .disabled(name == "" || tags.contains { $0.name == name })
         }
         .padding(20)
         .frame(maxWidth: 250)

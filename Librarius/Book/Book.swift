@@ -1,6 +1,7 @@
 import Foundation
 import SwiftUI
 import CoreGraphics
+import SwiftData
 
 
 struct Book : Equatable, Hashable, Identifiable {
@@ -31,8 +32,8 @@ struct Book : Equatable, Hashable, Identifiable {
         tags.remove(tag)
     }
     
-    func hasTag(_ tagID: UUID) -> Bool {
-        tags.first { $0.id == tagID } != nil
+    func hasTag(_ tagID: PersistentIdentifier) -> Bool {
+        tags.first { $0.persistentModelID == tagID } != nil
     }
     
     var title: String {

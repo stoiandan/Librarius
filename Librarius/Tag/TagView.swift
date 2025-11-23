@@ -8,7 +8,7 @@ struct TagView: View {
            Color(red: 4, green: 1, blue: 4)
                .clipShape(.circle)
                .frame(width: 16, height: 16)
-           Text(tag.description)
+           Text(tag.name)
                .padding(.horizontal)
         }
     }
@@ -16,6 +16,6 @@ struct TagView: View {
 
 #Preview {
     @Previewable @Environment(\.self) var env
-    let tag = Tag(description: "Sci-Fi", color: Color.blue.resolve(in: env) )
+    let tag = Tag(name: "Sci-Fi", color: Color.blue)
     TagView(tag: tag)
 }
