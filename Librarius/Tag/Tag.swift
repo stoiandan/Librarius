@@ -1,8 +1,6 @@
 import Foundation
 import SwiftUI
 import SwiftData
-import CoreGraphics
-
 
 @Model
 class Tag : Identifiable {
@@ -14,10 +12,10 @@ class Tag : Identifiable {
     
     convenience init(name: String, color: Color) {
         let nsColor = NSColor(color)
-        let r = Double(nsColor.redComponent)
-        let g = Double(nsColor.greenComponent)
-        let b = Double(nsColor.blueComponent)
-        let a = Double(nsColor.alphaComponent)
+        let r = nsColor.redComponent
+        let g = nsColor.greenComponent
+        let b = nsColor.blueComponent
+        let a = nsColor.alphaComponent
         self.init(name, r, g, b, a)
     }
     
@@ -32,7 +30,7 @@ class Tag : Identifiable {
     
     
     var color: Color {
-        let nsColor = NSColor(red: CGFloat(self.red), green: CGFloat(self.green), blue: CGFloat(self.blue), alpha: CGFloat(self.alpha))
+        let nsColor = NSColor(red: red, green: green, blue: blue, alpha: alpha)
         return Color(nsColor)
     }
     
