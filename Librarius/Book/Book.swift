@@ -4,32 +4,37 @@ import CoreGraphics
 import SwiftData
 
 
-struct Book : Equatable, Hashable, Identifiable {
-    nonisolated let id = UUID()
-    var tags: Set<Tag> = []
+@Model
+final class Book: Identifiable  {
+    
+    @Relationship(deleteRule: .cascade)
+    var tags: [Tag] = []
     
     
-    let url: URL
+    var url: URL
     
-    let thumbnail: CGImage
+    var imageData: Data
     
-    init(tags: [Tag], url: URL, thumbnail: CGImage) {
-        self.tags = Set(tags)
+    var image: NSImage {
+        NSImage(data: imageData)!
+    }
+    
+    init(url: URL, imageData: Data) {
         self.url = url
-        self.thumbnail = thumbnail
+        self.imageData = imageData
     }
     
-    init (url: URL, thumbnail: CGImage) {
-        self.url = url
-        self.thumbnail = thumbnail
+    init(from transferable: TransferableBook) {
+        self.url = transferable.url
+        self.imageData = transferable.imageData
     }
     
-    mutating func addTag(_ tag: Tag)  {
-        tags.insert(tag)
+    func addTag(_ tag: Tag)  {
+        tags.append(tag)
     }
     
-    mutating func removeTag(_ tag: Tag)  {
-        tags.remove(tag)
+    func removeTag(_ tag: Tag)  {
+        tags.remove(at: tags.firstIndex(of: tag)!)
     }
     
     func hasTag(_ tagID: PersistentIdentifier) -> Bool {
@@ -45,8 +50,20 @@ struct Book : Equatable, Hashable, Identifiable {
     }
 }
 
-extension Book: Transferable {
-     nonisolated static var transferRepresentation: some TransferRepresentation {
-        ProxyRepresentation(exporting: \.id.uuidString)
+
+
+extension Book {
+    struct BookTransferable: nonisolated Codable {
+        let persistanceIdentifier: PersistentIdentifier
     }
 }
+
+
+
+extension Book.BookTransferable: nonisolated Transferable {
+    nonisolated static var transferRepresentation: some TransferRepresentation {
+        CodableRepresentation(contentType: .data)
+    }
+}
+
+

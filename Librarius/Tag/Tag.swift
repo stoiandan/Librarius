@@ -19,8 +19,8 @@ class Tag : Identifiable {
         self.init(name, r, g, b, a)
     }
     
-    init(_ description: String, _ red: Double, _ green: Double, _ blue: Double, _ alpha: Double) {
-        self.name = description
+    init(_ name: String, _ red: Double, _ green: Double, _ blue: Double, _ alpha: Double) {
+        self.name = name
         self.red = red
         self.green = green
         self.blue = blue
@@ -44,11 +44,8 @@ extension Tag: nonisolated Comparable {
     }
 }
 
-
-
-
-func getBook(from books: [Book], with id: String) -> Book? {
-    books.first { $0.id.uuidString == id }
+func getBook(from books: [Book], with id: PersistentIdentifier) -> Book? {
+    books.first { $0.id == id }
 }
 
 

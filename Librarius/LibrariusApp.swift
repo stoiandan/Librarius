@@ -10,11 +10,12 @@ import SwiftData
 
 @main
 struct LibrariuisApp: App {
-
+    let modelContainer = try! ModelContainer(for: Book.self, Tag.self)
     
     var body: some Scene {
         WindowGroup {
             MainWindow()
         }
+        .modelContext(modelContainer.mainContext)
     }
 }

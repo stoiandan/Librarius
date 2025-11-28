@@ -7,7 +7,7 @@ struct BookView: View {
     
     var body: some View {
         VStack {
-            Image(decorative: book.thumbnail, scale: displayScale)
+            Image(nsImage: book.image)
                 .resizable()
                 .scaledToFit()
             Text(book.title)
@@ -20,25 +20,4 @@ struct BookView: View {
             }
         }
     }
-}
-
-
-
-#Preview {
-    @Previewable @State var book: Book? = nil
-    
-    let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
-    
-    Group {
-        if let book {
-            BookView(book: book)
-                .frame(width: 400, height: 500)
-        } else {
-            ProgressView()
-                .task {
-                    book = await createBook(for: url, of: CGSize(width: 120, height: 255), scale: 4.0, with: Tag.shortExamples)
-                }
-        }
-    }
-    
 }

@@ -5,8 +5,10 @@ import SwiftUI
 struct TagCreator: View {
     @Environment(\.self) var environment
     
+    @Environment(\.modelContext) var context
     
-    @Binding var tags: [Tag]
+    let tags: [Tag]
+    
     @Binding var isPresented: Bool
     @State var color: Color = .white
     @State var name = ""
@@ -23,7 +25,7 @@ struct TagCreator: View {
             
             
             Button("Create Tag",) {
-                tags.append(Tag(name: name, color: color))
+                context.insert(Tag(name: name, color: color))
                 isPresented = false
             }
             .disabled(name == "" || tags.contains { $0.name == name })
@@ -34,5 +36,5 @@ struct TagCreator: View {
 }
 
 #Preview {
-    TagCreator(tags: .constant([]), isPresented: .constant(true))
+    TagCreator(tags: [], isPresented: .constant(true))
 }

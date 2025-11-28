@@ -1,32 +1,37 @@
 import SwiftUI
 import SwiftData
 
-struct MainWindow: View {   
-    @State var vm = MainWindowVM()
-    
+struct MainWindow: View {
     @Environment(\.displayScale) var displayScale
+    
+    @Environment(\.modelContext) var context
+    
+    @State var isCreatingTag = false
+    
+    @Query() var books: [Book]
+    
+    @Query() var tags: [Tag]
+    
+    @State var collections: [String] = []
     
     var body: some View {
         NavigationSplitView(sidebar: {
             Section("Tags") {
-                List(vm.tags) { tag in
+                List(tags) { tag in
                     TagView(tag: tag)
-                        .dropDestination(for: Book.self) {
+                        .dropDestination(for: Book.BookTransferable.self) {
                             droppedBooks, session in
-                            
-                            droppedBooks.forEach { book in
-                                vm.books[vm.books.firstIndex(of: book)!].tags.insert(tag)
-                            }
+                            attach(tag: tag, to: droppedBooks.map(\.persistanceIdentifier))
                         }
                 }
             }
             Section("Collections") {
-                List(vm.collections, id: \.self) { col in
+                List(collections, id: \.self) { col in
                     Text(col)
                 }
             }
         }, detail: {
-            if vm.books.isEmpty {
+            if books.isEmpty {
                 VStack {
                     Text("Drop your PDFs here")
                         .font(.title)
@@ -36,7 +41,7 @@ struct MainWindow: View {
                 }
                 .frame(width: 200,height: 200)
             } else {
-                BookGridView(books: $vm.books, tags: vm.tags)
+                BookGridView()
             }
         })
         .dropDestination(for: URL.self, action: handleDrop)
@@ -44,10 +49,10 @@ struct MainWindow: View {
         .toolbar {
             ToolbarItem {
                 Button("add tag", systemImage: "plus") {
-                    vm.isCreatingTag.toggle()
+                    isCreatingTag.toggle()
                 }
-                .sheet(isPresented: $vm.isCreatingTag) {
-                    TagCreator(tags: $vm.tags, isPresented: $vm.isCreatingTag)
+                .sheet(isPresented: $isCreatingTag) {
+                    TagCreator(tags: tags, isPresented: $isCreatingTag)
                 }
             }
         }
@@ -55,60 +60,76 @@ struct MainWindow: View {
     
     
     func handleDrop(urls: [URL], point: CGPoint) -> Bool {
-        Task.detached {
+        Task {
             await withTaskGroup {  group in
                 for url in urls {
                     group.addTask {
-                        let book = await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
-                        return book
+                        await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
                     }
                 }
                 
-                for await book in group {
-                    await MainActor.run {
-                        vm.books.append(book)
-                    }
+                for await transferableBook in group {
+                    context.insert(Book(from: transferableBook))
                 }
+                try? context.save()
             }
         }
         return true
+    }
+    
+    func attach(tag: Tag, to booksIDs: [PersistentIdentifier]){
+        let descriptor = FetchDescriptor<Book>(
+            predicate: #Predicate { book in
+                booksIDs.contains(book.id)
+            }
+        )
+        guard let books = try? context.fetch(descriptor) else {
+            return
+        }
+        
+        for book in books {
+            book.addTag(tag)
+        }
+        
+        try? context.save()
     }
     
 }
 
 
 struct BookProvider: PreviewModifier {
-    static func makeSharedContext() async -> [Book] {
+    static func makeSharedContext() async -> ModelContext {
         let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
         
-        return await withTaskGroup { tg in
+        let container = try! ModelContainer(for: Book.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
+        
+        let context = ModelContext(container)
+        
+        await withTaskGroup { tg in
             for _ in 0..<10 {
                 tg.addTask {
-                    return await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
+                    await createBook(for: url, of: CGSize(width: 200, height: 2000), scale: 4.0)
                 }
             }
-            var books: [Book] = []
-            for await result in tg {
-                books.append(result)
+            
+            for await transferableBook in tg {
+                context.insert(Book(from: transferableBook))
             }
-            return books
         }
+        
+        return context
     }
     
     
-    func body(content: Content, context: [Book]) -> some View {
-        let mw = MainWindow()
-        mw.vm.books.append(contentsOf: context)
-        
-        return mw
+    func body(content: Content, context: ModelContext) -> some View {
+        content
+            .modelContext(context)
     }
 }
 
 
 
 #Preview(traits: .modifier(BookProvider())) {
-    let mw = MainWindow()
-    mw.vm.tags.append(contentsOf: Tag.examples)
-    
-    return  mw.frame(width: 400, height: 600)
+    MainWindow()
+        .frame(width: 400, height: 600)
 }
