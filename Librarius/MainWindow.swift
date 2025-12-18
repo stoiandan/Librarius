@@ -98,6 +98,7 @@ struct MainWindow: View {
 
 
 struct BookProvider: PreviewModifier {
+    
     static func makeSharedContext() async -> ModelContext {
         let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
         
@@ -131,5 +132,5 @@ struct BookProvider: PreviewModifier {
 
 #Preview(traits: .modifier(BookProvider())) {
     MainWindow()
-        .frame(width: 400, height: 600)
+        .frame(width: 950, height: 600)
 }

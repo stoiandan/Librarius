@@ -1,4 +1,5 @@
 import SwiftUI
+import SwiftData
 
 struct BookView: View {
     @Environment(\.displayScale) var displayScale
@@ -20,4 +21,12 @@ struct BookView: View {
             }
         }
     }
+}
+
+
+#Preview(traits: .modifier(BookProvider())) {
+    
+    @Previewable @Query var books: [Book]
+    
+    BookView(book: books.first!)
 }
