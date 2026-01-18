@@ -8,7 +8,6 @@
 
 /* Begin PBXBuildFile section */
 		3707F3C72E55F94100D04ACB /* BookGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707F3C62E55F93A00D04ACB /* BookGridView.swift */; };
-		3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */; };
 		37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DEA2DE8C0F900A89639 /* Tag.swift */; };
 		37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DE62DE8C0F900A89639 /* BookView.swift */; };
 		37502DFF2DE8C0F900A89639 /* LibrariusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DF22DE8C0F900A89639 /* LibrariusApp.swift */; };
@@ -19,7 +18,7 @@
 		37502E042DE8C0F900A89639 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37502DE82DE8C0F900A89639 /* Preview Assets.xcassets */; };
 		37502E052DE8C0F900A89639 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 37502DEF2DE8C0F900A89639 /* Assets.xcassets */; };
 		37502E082DE8C18000A89639 /* TagCreator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502E072DE8C18000A89639 /* TagCreator.swift */; };
-		375784832EAF85F6008F0C38 /* MainWindowVM.swift in Sources */ = {isa = PBXBuildFile; fileRef = 375784822EAF85F6008F0C38 /* MainWindowVM.swift */; };
+		37C082DD2F1D184E0050144D /* text.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 37C082DC2F1D184E0050144D /* text.pdf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +40,6 @@
 
 /* Begin PBXFileReference section */
 		3707F3C62E55F93A00D04ACB /* BookGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridView.swift; sourceTree = "<group>"; };
-		3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = "Curs confirmare RO.pdf"; sourceTree = "<group>"; };
 		37502DE52DE8C0F900A89639 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		37502DE62DE8C0F900A89639 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		37502DE82DE8C0F900A89639 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -53,10 +51,10 @@
 		37502DF12DE8C0F900A89639 /* Librarius.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Librarius.entitlements; sourceTree = "<group>"; };
 		37502DF22DE8C0F900A89639 /* LibrariusApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LibrariusApp.swift; sourceTree = "<group>"; };
 		37502E072DE8C18000A89639 /* TagCreator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TagCreator.swift; sourceTree = "<group>"; };
-		375784822EAF85F6008F0C38 /* MainWindowVM.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainWindowVM.swift; sourceTree = "<group>"; };
 		37A9E3392D29776A00F75D2A /* Librarius.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Librarius.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A9E34C2D29776B00F75D2A /* LibrariusTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariusTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		37A9E3562D29776B00F75D2A /* LibrariusUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = LibrariusUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		37C082DC2F1D184E0050144D /* text.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = text.pdf; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedRootGroup section */
@@ -108,7 +106,7 @@
 		3748A6392DE20C2D00F17856 /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				3748A5FD2DD5C01400F17856 /* Curs confirmare RO.pdf */,
+				37C082DC2F1D184E0050144D /* text.pdf */,
 			);
 			path = Resources;
 			sourceTree = "<group>";
@@ -157,7 +155,6 @@
 				37502DEC2DE8C0F900A89639 /* Tag */,
 				37502DEE2DE8C0F900A89639 /* Util */,
 				37502DEF2DE8C0F900A89639 /* Assets.xcassets */,
-				375784822EAF85F6008F0C38 /* MainWindowVM.swift */,
 				37502DF02DE8C0F900A89639 /* MainWindow.swift */,
 				37502DF12DE8C0F900A89639 /* Librarius.entitlements */,
 				37502DF22DE8C0F900A89639 /* LibrariusApp.swift */,
@@ -312,8 +309,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				37502E042DE8C0F900A89639 /* Preview Assets.xcassets in Resources */,
+				37C082DD2F1D184E0050144D /* text.pdf in Resources */,
 				37502E052DE8C0F900A89639 /* Assets.xcassets in Resources */,
-				3748A5FE2DD5C01400F17856 /* Curs confirmare RO.pdf in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -341,7 +338,6 @@
 				37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */,
 				37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */,
 				37502DFF2DE8C0F900A89639 /* LibrariusApp.swift in Sources */,
-				375784832EAF85F6008F0C38 /* MainWindowVM.swift in Sources */,
 				37502E002DE8C0F900A89639 /* MainWindow.swift in Sources */,
 				3707F3C72E55F94100D04ACB /* BookGridView.swift in Sources */,
 				37502E012DE8C0F900A89639 /* BookCreator.swift in Sources */,
@@ -519,6 +515,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Librarius/Preview Content\"";
+				DEVELOPMENT_TEAM = J5BGYQXVBB;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;
@@ -551,6 +548,7 @@
 				CURRENT_PROJECT_VERSION = 1;
 				DEAD_CODE_STRIPPING = YES;
 				DEVELOPMENT_ASSET_PATHS = "\"Librarius/Preview Content\"";
+				DEVELOPMENT_TEAM = J5BGYQXVBB;
 				ENABLE_APP_SANDBOX = YES;
 				ENABLE_HARDENED_RUNTIME = YES;
 				ENABLE_PREVIEWS = YES;

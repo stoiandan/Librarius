@@ -10,6 +10,9 @@ class Tag : Identifiable {
     private(set) var blue: Double
     private(set) var alpha: Double
     
+    @Relationship(inverse: \Book.tags)
+    var books: [Book] = []
+    
     convenience init(name: String, color: Color) {
         let nsColor = NSColor(color)
         let r = nsColor.redComponent

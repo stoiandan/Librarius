@@ -100,7 +100,7 @@ struct MainWindow: View {
 struct BookProvider: PreviewModifier {
     
     static func makeSharedContext() async -> ModelContext {
-        let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
+        let url = Bundle.main.url(forResource: "text", withExtension: "pdf")!
         
         let container = try! ModelContainer(for: Book.self, configurations: ModelConfiguration(isStoredInMemoryOnly: true))
         
@@ -114,7 +114,9 @@ struct BookProvider: PreviewModifier {
             }
             
             for await transferableBook in tg {
-                context.insert(Book(from: transferableBook))
+                let book = Book(from: transferableBook)
+                book.addTag(Tag.examples.first!)
+                context.insert(book)
             }
         }
         

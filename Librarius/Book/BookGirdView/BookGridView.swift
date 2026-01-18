@@ -15,15 +15,12 @@ struct BookGridView: View {
                 ForEach(books) { book in
                     BookView(book: book)
                         .draggable(Book.BookTransferable(persistanceIdentifier: book.id))
-                        .border(.blue)
                 }
             }
         }
     }
 }
 
-#Preview {
-    @Previewable @State var books: [Book]  = []
-    
-    let url = Bundle.main.url(forResource: "Curs confirmare RO", withExtension: "pdf")!
+#Preview(traits: .modifier(BookProvider())) {
+    BookGridView()
 }

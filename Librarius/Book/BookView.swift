@@ -16,7 +16,7 @@ struct BookView: View {
                 .font(.headline)
             HStack {
                 ForEach(book.tags.sorted(), id: \.self) { tag in
-                    TagView(tag: tag)
+                    TagView(tag: tag, showText: false)
                 }
             }
         }

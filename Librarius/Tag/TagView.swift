@@ -3,13 +3,17 @@ import SwiftUI
 struct TagView: View {
     let tag: Tag
     
+    var showText = true
+    
     var body: some View {
-       HStack {
-           Color(red: 4, green: 1, blue: 4)
-               .clipShape(.circle)
-               .frame(width: 16, height: 16)
-           Text(tag.name)
-               .padding(.horizontal)
+        HStack {
+            Color(red: 4, green: 1, blue: 4)
+                .clipShape(.circle)
+                .frame(width: 16, height: 16)
+            if showText {
+                Text(tag.name)
+                    .padding(.horizontal)
+            }
         }
     }
 }
