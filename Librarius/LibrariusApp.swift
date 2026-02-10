@@ -10,7 +10,12 @@ import SwiftData
 
 @main
 struct LibrariuisApp: App {
-    let modelContainer = try! ModelContainer(for: Book.self, Tag.self)
+    let modelContainer =  {
+        let modelConfiguration = ModelConfiguration(
+            isStoredInMemoryOnly: true)
+        
+        return try! ModelContainer(for: Book.self, Tag.self, configurations: modelConfiguration)
+    }()
     
     var body: some Scene {
         WindowGroup {

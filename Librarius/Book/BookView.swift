@@ -10,7 +10,8 @@ struct BookView: View {
         VStack {
             Image(nsImage: book.image)
                 .resizable()
-                .scaledToFit()
+                .frame(width: 150, height: 200)
+                .scaledToFill()
             Text(book.title)
                 .lineLimit(3)
                 .font(.headline)
@@ -20,6 +21,7 @@ struct BookView: View {
                 }
             }
         }
+        .padding()
     }
 }
 
