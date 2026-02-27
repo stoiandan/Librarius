@@ -28,16 +28,11 @@ class Tag : Identifiable {
         self.green = green
         self.blue = blue
         self.alpha = alpha
-
     }
     
-    
-    var color: Color {
-        let nsColor = NSColor(red: red, green: green, blue: blue, alpha: alpha)
-        return Color(nsColor)
+    var color: NSColor {
+        NSColor(red: red, green: green, blue: blue, alpha: alpha)
     }
-    
-    
 }
 
 
@@ -68,7 +63,7 @@ extension Tag {
     }
     
     static var shortExamples: [Tag] {
-         [
+        [
             .init(name: "Sci-Fi", color: Color.blue),
             .init(name: "Roamnce", color: Color.black),
         ]
