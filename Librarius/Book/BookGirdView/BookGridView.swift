@@ -3,7 +3,7 @@ import SwiftData
 
 
 struct BookGridView: View {
-    let columns = [GridItem(.adaptive(minimum: 170), spacing: 10)]
+    let columns = [GridItem(.adaptive(minimum: 170), spacing: 10, alignment: .top)]
     
     @Query()  var books: [Book]
     
