@@ -3,19 +3,18 @@
 import Foundation
 import QuickLookThumbnailing
 import CoreGraphics
-import SwiftData
 
-func createBook(for url: URL, of size: CGSize, scale: CGFloat, with tags: [Tag] = []) async -> TransferableBook   {
+func createBookImportData(for url: URL, of size: CGSize, scale: CGFloat) async -> BookImportData {
     let request = QLThumbnailGenerator.Request(fileAt: url, size: size, scale: scale, representationTypes: .thumbnail)
     
     
     let representation = try! await QLThumbnailGenerator.shared.generateBestRepresentation(for: request)
     
-    return TransferableBook(url: url, imageData: representation.nsImage.tiffRepresentation!)
+    return BookImportData(url: url, imageData: representation.nsImage.tiffRepresentation!)
 }
 
 
-struct TransferableBook: Codable {
+struct BookImportData: Codable {
     let url: URL
     let imageData: Data
 }

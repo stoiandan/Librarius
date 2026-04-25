@@ -19,9 +19,9 @@ struct MainWindow: View {
             Section("Tags") {
                 List(tags) { tag in
                     TagView(tag: tag)
-                        .dropDestination(for: Book.BookTransferable.self) {
+                        .dropDestination(for: Book.DragItem.self) {
                             droppedBooks, session in
-                            attach(tag: tag, to: droppedBooks.map(\.persistanceIdentifier))
+                            attach(tag: tag, to: droppedBooks.map(\.persistentIdentifier))
                         }
                 }
             }
@@ -64,12 +64,12 @@ struct MainWindow: View {
             await withTaskGroup {  group in
                 for url in urls {
                     group.addTask {
-                        await createBook(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
+                        await createBookImportData(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
                     }
                 }
                 
-                for await transferableBook in group {
-                    context.insert(Book(from: transferableBook))
+                for await bookImportData in group {
+                    context.insert(Book(from: bookImportData))
                 }
                 try? context.save()
             }
@@ -109,12 +109,12 @@ struct BookProvider: PreviewModifier {
         await withTaskGroup { tg in
             for _ in 0..<10 {
                 tg.addTask {
-                    await createBook(for: url, of: CGSize(width: 200, height: 2000), scale: 4.0)
+                    await createBookImportData(for: url, of: CGSize(width: 200, height: 2000), scale: 4.0)
                 }
             }
             
-            for await transferableBook in tg {
-                let book = Book(from: transferableBook)
+            for await bookImportData in tg {
+                let book = Book(from: bookImportData)
                 book.addTag(Tag.examples.first!)
                 context.insert(book)
             }

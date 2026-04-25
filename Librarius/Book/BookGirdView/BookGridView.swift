@@ -14,7 +14,7 @@ struct BookGridView: View {
             LazyVGrid(columns: columns) {
                 ForEach(books) { book in
                     BookView(book: book)
-                        .draggable(Book.BookTransferable(persistanceIdentifier: book.id))
+                        .draggable(Book.DragItem(persistentIdentifier: book.id))
                 }
             }
         }

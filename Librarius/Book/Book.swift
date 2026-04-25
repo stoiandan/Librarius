@@ -24,9 +24,9 @@ final class Book: Identifiable  {
         self.imageData = imageData
     }
     
-    init(from transferable: TransferableBook) {
-        self.url = transferable.url
-        self.imageData = transferable.imageData
+    init(from importData: BookImportData) {
+        self.url = importData.url
+        self.imageData = importData.imageData
     }
     
     func addTag(_ tag: Tag)  {
@@ -53,17 +53,16 @@ final class Book: Identifiable  {
 
 
 extension Book {
-    struct BookTransferable: nonisolated Codable {
-        let persistanceIdentifier: PersistentIdentifier
+    struct DragItem: nonisolated Codable {
+        let persistentIdentifier: PersistentIdentifier
     }
 }
 
 
 
-extension Book.BookTransferable: nonisolated Transferable {
+extension Book.DragItem: nonisolated Transferable {
     nonisolated static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .data)
     }
 }
-
 
