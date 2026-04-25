@@ -64,12 +64,14 @@ struct MainWindow: View {
             await withTaskGroup {  group in
                 for url in urls {
                     group.addTask {
-                        await createBookImportData(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
+                        try? await createBookImportData(for: url, of: CGSize(width: 200, height: 200), scale: 4.0)
                     }
                 }
                 
-                for await bookImportData in group {
-                    context.insert(Book(from: bookImportData))
+                for await result in group {
+                    if let bookImportData = result {
+                        context.insert(Book(from: bookImportData))
+                    }
                 }
                 try? context.save()
             }
@@ -109,11 +111,14 @@ struct BookProvider: PreviewModifier {
         await withTaskGroup { tg in
             for _ in 0..<10 {
                 tg.addTask {
-                    await createBookImportData(for: url, of: CGSize(width: 200, height: 2000), scale: 4.0)
+                    try? await createBookImportData(for: url, of: CGSize(width: 200, height: 2000), scale: 4.0)
                 }
             }
             
-            for await bookImportData in tg {
+            for await result in tg {
+                guard let bookImportData = result else {
+                    continue
+                }
                 let book = Book(from: bookImportData)
                 book.addTag(Tag.examples.first!)
                 context.insert(book)

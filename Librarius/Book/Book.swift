@@ -3,22 +3,18 @@ import SwiftUI
 import CoreGraphics
 import SwiftData
 
-
 @Model
 final class Book: Identifiable  {
-    
     @Relationship(deleteRule: .cascade)
     var tags: [Tag] = []
-    
-    
+
     var url: URL
-    
     var imageData: Data
-    
+
     var image: NSImage {
         NSImage(data: imageData)!
     }
-    
+
     init(url: URL, imageData: Data) {
         self.url = url
         self.imageData = imageData
@@ -28,19 +24,19 @@ final class Book: Identifiable  {
         self.url = importData.url
         self.imageData = importData.imageData
     }
-    
+
     func addTag(_ tag: Tag)  {
         tags.append(tag)
     }
-    
+
     func removeTag(_ tag: Tag)  {
         tags.remove(at: tags.firstIndex(of: tag)!)
     }
-    
+
     func hasTag(_ tagID: PersistentIdentifier) -> Bool {
         tags.first { $0.persistentModelID == tagID } != nil
     }
-    
+
     var title: String {
         if !url.pathExtension.isEmpty {
             String(url.lastPathComponent.prefix(url.lastPathComponent.count -  url.pathExtension.count - 1))
@@ -50,19 +46,14 @@ final class Book: Identifiable  {
     }
 }
 
-
-
 extension Book {
     struct DragItem: nonisolated Codable {
         let persistentIdentifier: PersistentIdentifier
     }
 }
 
-
-
 extension Book.DragItem: nonisolated Transferable {
     nonisolated static var transferRepresentation: some TransferRepresentation {
         CodableRepresentation(contentType: .data)
     }
 }
-

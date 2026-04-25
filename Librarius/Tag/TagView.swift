@@ -7,7 +7,7 @@ struct TagView: View {
     
     var body: some View {
         HStack {
-            Color(tag.color)
+            tag.color
                 .clipShape(.circle)
                 .frame(width: 16, height: 16)
             if showText {

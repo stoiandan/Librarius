@@ -30,7 +30,11 @@ class Tag : Identifiable {
         self.alpha = alpha
     }
     
-    var color: NSColor {
+    var color: Color {
+        Color(red: red, green: green, blue: blue, opacity: alpha)
+    }
+
+    var nsColor: NSColor {
         NSColor(red: red, green: green, blue: blue, alpha: alpha)
     }
 }
@@ -53,7 +57,7 @@ extension Tag {
     static var examples: [Tag] {
         [
             .init(name: "Sci-Fi", color: Color.blue),
-            .init(name: "Roamnce", color: Color.black),
+            .init(name: "Romance", color: Color.black),
             .init(name: "Religion", color: Color.white),
             .init(name: "Technical", color: Color.brown),
             .init(name: "Cooking", color: Color.green),
@@ -65,7 +69,7 @@ extension Tag {
     static var shortExamples: [Tag] {
         [
             .init(name: "Sci-Fi", color: Color.blue),
-            .init(name: "Roamnce", color: Color.black),
+            .init(name: "Romance", color: Color.black),
         ]
     }
 }
