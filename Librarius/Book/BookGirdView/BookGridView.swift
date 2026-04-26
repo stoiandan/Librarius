@@ -5,16 +5,36 @@ import SwiftData
 struct BookGridView: View {
     let columns = [GridItem(.adaptive(minimum: 170), spacing: 10, alignment: .top)]
     
-    @Query()  var books: [Book]
+    @Query private var books: [Book]
     
-    @Query()  var tags: [Tag]
+    init(selectedTag: Tag? = nil) {
+        guard let selectedTagID = selectedTag?.persistentModelID else {
+            _books = Query()
+            return
+        }
+
+        _books = Query(filter: #Predicate<Book> { book in
+            book.tags.contains { $0.persistentModelID == selectedTagID }
+        })
+    }
         
     var body: some View {
-        ScrollView {
-            LazyVGrid(columns: columns) {
-                ForEach(books) { book in
-                    BookView(book: book)
-                        .draggable(Book.DragItem(persistentIdentifier: book.id))
+        if books.isEmpty {
+            VStack {
+                Text("Drop your PDFs here")
+                    .font(.title)
+                Image(systemName: "document.badge.plus")
+                    .resizable()
+                    .scaledToFit()
+            }
+            .frame(width: 200,height: 200)
+        } else {
+            ScrollView {
+                LazyVGrid(columns: columns) {
+                    ForEach(books) { book in
+                        BookView(book: book)
+                            .draggable(Book.DragItem(persistentIdentifier: book.id))
+                    }
                 }
             }
         }

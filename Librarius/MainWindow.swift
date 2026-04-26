@@ -8,7 +8,7 @@ struct MainWindow: View {
     
     @State var isCreatingTag = false
     
-    @Query() var books: [Book]
+    @State var selectedTag: Tag?
     
     @Query() var tags: [Tag]
     
@@ -23,6 +23,9 @@ struct MainWindow: View {
                             droppedBooks, session in
                             attach(tag: tag, to: droppedBooks.map(\.persistentIdentifier))
                         }
+                        .onTapGesture {
+                            selectedTag = tag
+                        }
                 }
             }
             Section("Collections") {
@@ -31,18 +34,7 @@ struct MainWindow: View {
                 }
             }
         }, detail: {
-            if books.isEmpty {
-                VStack {
-                    Text("Drop your PDFs here")
-                        .font(.title)
-                    Image(systemName: "document.badge.plus")
-                        .resizable()
-                        .scaledToFit()
-                }
-                .frame(width: 200,height: 200)
-            } else {
-                BookGridView()
-            }
+            BookGridView(selectedTag: selectedTag)
         })
         .dropDestination(for: URL.self, action: handleDrop)
         .navigationTitle("Librarius")
