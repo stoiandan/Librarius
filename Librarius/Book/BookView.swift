@@ -9,10 +9,12 @@ struct BookView: View {
     var body: some View {
         VStack {
             Group {
-                Image(nsImage: book.image)
-                    .resizable()
-                    .frame(width: 150, height: 200)
-                    .scaledToFill()
+                if let image = book.image {
+                    Image(nsImage: image)
+                        .resizable()
+                        .frame(width: 150, height: 200)
+                        .scaledToFill()
+                }
                 Text(book.title)
                     .lineLimit(3)
                     .font(.headline)

@@ -70,7 +70,7 @@ struct MainWindow: View {
                 
                 for await result in group {
                     if let bookImportData = result {
-                        context.insert(Book(from: bookImportData))
+                        context.insert(Book(url: bookImportData.url, imageData: bookImportData.imageData))
                     }
                 }
                 try? context.save()
@@ -119,7 +119,7 @@ struct BookProvider: PreviewModifier {
                 guard let bookImportData = result else {
                     continue
                 }
-                let book = Book(from: bookImportData)
+                let book = Book(url: bookImportData.url, imageData: bookImportData.imageData)
                 book.addTag(Tag.examples.first!)
                 context.insert(book)
             }
