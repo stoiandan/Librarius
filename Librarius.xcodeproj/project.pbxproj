@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		3707F3C72E55F94100D04ACB /* BookGridView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3707F3C62E55F93A00D04ACB /* BookGridView.swift */; };
+		3720FBA82F9E2723004D184C /* SelectedTagModifier.swift in Sources */ = {isa = PBXBuildFile; fileRef = 3720FBA72F9E271B004D184C /* SelectedTagModifier.swift */; };
 		37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DEA2DE8C0F900A89639 /* Tag.swift */; };
 		37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DE62DE8C0F900A89639 /* BookView.swift */; };
 		37502DFF2DE8C0F900A89639 /* LibrariusApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 37502DF22DE8C0F900A89639 /* LibrariusApp.swift */; };
@@ -40,6 +41,7 @@
 
 /* Begin PBXFileReference section */
 		3707F3C62E55F93A00D04ACB /* BookGridView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookGridView.swift; sourceTree = "<group>"; };
+		3720FBA72F9E271B004D184C /* SelectedTagModifier.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedTagModifier.swift; sourceTree = "<group>"; };
 		37502DE52DE8C0F900A89639 /* Book.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Book.swift; sourceTree = "<group>"; };
 		37502DE62DE8C0F900A89639 /* BookView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BookView.swift; sourceTree = "<group>"; };
 		37502DE82DE8C0F900A89639 /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
@@ -132,6 +134,7 @@
 		37502DEC2DE8C0F900A89639 /* Tag */ = {
 			isa = PBXGroup;
 			children = (
+				3720FBA72F9E271B004D184C /* SelectedTagModifier.swift */,
 				37502DEA2DE8C0F900A89639 /* Tag.swift */,
 				37502DEB2DE8C0F900A89639 /* TagView.swift */,
 			);
@@ -337,6 +340,7 @@
 			files = (
 				37502DFD2DE8C0F900A89639 /* Tag.swift in Sources */,
 				37502DFE2DE8C0F900A89639 /* BookView.swift in Sources */,
+				3720FBA82F9E2723004D184C /* SelectedTagModifier.swift in Sources */,
 				37502DFF2DE8C0F900A89639 /* LibrariusApp.swift in Sources */,
 				37502E002DE8C0F900A89639 /* MainWindow.swift in Sources */,
 				3707F3C72E55F94100D04ACB /* BookGridView.swift in Sources */,

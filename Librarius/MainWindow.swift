@@ -19,6 +19,7 @@ struct MainWindow: View {
             Section("Tags") {
                 List(tags) { tag in
                     TagView(tag: tag)
+                        .selection(isSelected: tag.persistentModelID == selectedTag?.persistentModelID, color: tag.color)
                         .dropDestination(for: Book.DragItem.self) {
                             droppedBooks, session in
                             attach(tag: tag, to: droppedBooks.map(\.persistentIdentifier))

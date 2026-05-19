@@ -14,7 +14,7 @@ class Tag : Identifiable {
     var books: [Book] = []
     
     convenience init(name: String, color: Color) {
-        let nsColor = NSColor(color)
+        let nsColor = NSColor(color).usingColorSpace(.sRGB) ?? NSColor.black
         let r = nsColor.redComponent
         let g = nsColor.greenComponent
         let b = nsColor.blueComponent
@@ -30,7 +30,7 @@ class Tag : Identifiable {
         self.alpha = alpha
     }
     
-    var color: Color {
+    public var color: Color {
         Color(red: red, green: green, blue: blue, opacity: alpha)
     }
 
@@ -73,4 +73,3 @@ extension Tag {
         ]
     }
 }
-
