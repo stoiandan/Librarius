@@ -8,6 +8,7 @@ final class Book {
     var tags: [Tag] = []
 
     var url: URL
+    @Attribute(.externalStorage)
     var imageData: Data
 
     var image: NSImage? {
